@@ -1,0 +1,130 @@
+create table uzytkownicy (id serial, nazwa varchar(30) primary key, 
+haslo varchar(30) not null,
+id_ksiazki int4 references ksiazki(id) on update cascade on delete set null);
+
+
+
+create table kategorie (id serial, nazwa varchar(30) primary key);
+INSERT INTO kategorie ( nazwa ) VALUES
+('obyczajowe'),
+('fantasy'),
+('powieœæ'),
+('antyutopia'),
+('dla dzieci'),
+('biografia'),
+('melodramat'),
+('historyczne'),
+('science fiction'),
+('krymina³'),
+('przygodowe'),
+('romans'),
+('dramat')
+
+
+ create table ksiazki (id serial primary key, tytul varchar(50) not null, autor varchar(40),
+ kategoria varchar(30) references kategorie(nazwa) on update cascade on delete set null, 
+rok_wydania int4, unique(tytul));
+
+ALTER TABLE ksiazki ADD wyporzyczona int4 DEFAULT 0;
+
+
+INSERT INTO ksiazki ( tytul, autor, kategoria, rok_wydania ) VALUES
+
+('W³adca Pierœcieni', 'JRR Tolkien', 'fantasy', 1954),
+('Jane Eyre', 'Charlotte Bronte', 'obyczajowe', 1847),
+('Seria o Harrym Potterze', 'JK Rowling', 'fantasy', 1997), 
+('Zabiæ drozda', 'Harper Lee', 'powieœæ', 1960),
+('Wichrowe Wzgórza', 'Emily Bronte', 'powieœæ', 1847), 
+('Rok 1984', 'George Orwell', 'antyutopia', 1949),
+('Mroczne materie', 'Philip Pullman', 'fantasy', 1995), 
+('Wielkie nadzieje', 'Charles Dickens', 'obyczajowe', 1860),
+('Tessa D’Urberville', 'Thomas Hardy', 'obyczajowe', 1891),
+('Paragraf 22', 'Joseph Heller', 'powieœæ', 1961),
+('Rebeka', 'Daphne Du Maurier', 'powieœæ', 1938), 
+('Hobbit', 'JRR Tolkien', 'fantasy', 1937), 
+('¯ona podró¿nika w czasie', 'Audrey Niffenegger', 'powieœæ', 2003), 
+('Miasteczko Middlemarch', 'George Eliot', 'fantasy', 1871), 
+('Przeminê³o z wiatrem', 'Margaret Mitchell', 'melodramat', 1938), 
+('Wielki Gatsby', 'F Scott Fitzgerald', 'powieœæ', 1925), 
+('Wojna i pokój', 'Lew To³stoj', 'historyczne', 1865),
+('Autostopem przez Galaktykê', 'Douglas Adams','science fiction', 1978),
+('Alicja w Krainie Czarów', 'Lewis Carroll', 'fantasy', 1865),
+('Lew, Czarownica i Stara Szafa', 'CS Lewis', 'fantasy', 1950),  
+('Kubuœ Puchatek', 'AA Milne', 'dla dzieci', 1929 ), 
+('Folwark zwierzêcy', 'George Orwell', 'antyutopia', 1943),
+('Kod Da Vinci', 'Dan Brown', 'krymina³', 2003) ,
+('O czym szumi¹ wierzby', 'Kenneth Grahame', 'dla dzieci', 1908), 
+('Ania z Zielonego Wzgórza', 'LM Montgomery', 'dla dzieci', 1908), 
+('Rozwa¿na i romantyczna', 'Jane Austen', 'romans', 1811),
+('Dziennik Bridget Jones', 'Helen Fielding', 'obyczajowe', 1996), 
+('Tajemniczy ogród', 'Frances Hodgson Burnett', 'dla dzieci', 1911),
+('Przygody Scherlocka Holmesa', 'Sir Arthur Conan Doyle', 'krymina³', 1892),
+('Pajêczyna Szarloty', 'EB White', 'dla dzieci', 1952), 
+('Ma³y Ksi¹¿ê', 'Antoine De Saint-Exupery', 'dla dzieci', 1943), 
+('Trzej muszkieterowie', 'Alexandre Dumas', 'przygodowe', 1844), 
+('Hamlet', 'William Shakespeare', 'dramat', 1600),
+('Charlie i fabryka czekolady', 'Roald Dahl', 'fantasy', 1964), 
+('¯ycie na pe³nej petardzie', 'Jan Kaczkowski', 'biografia', 2015),
+('My, dzieci z dworca ZOO', 'Christiane Felscherinow', 'biografia', 1987),
+
+
+
+('Samotnia', 'Charles Dickens', , ), 
+('Znowu w Brideshead', 'Evelyn Waugh', , ), 
+('Zbrodnia i kara', 'Fiodor Dostojewski', , ), 
+('Grona gniewu', 'John Steinbeck', , ), 
+('Anna Karenina', 'Lew To³stoj', , ), 
+('David Copperfield', 'Charles Dickens', , ), 
+('Emma', 'Jane Austen', , ), 
+('Perswazje', 'Jane Austen', , ), 
+('Ch³opiec z latawcem', 'Khaled Hosseini 
+('Kapitan Corelli', 'Louis De Bernieres', , ),
+
+Sto lat samotnoœci – Gabriel Garcia Marquez 
+Modlitwa za Owena – John Irving 
+Kobieta w bieli – Wilkie Collins 
+Z dala od zgie³ku – Thomas Hardy 
+Opowieœæ podrêcznej – Margaret Atwood 
+W³adca much – William Golding 
+Pokuta – Ian McEwan 
+¯ycie Pi – Yann Martel', , ) 
+Diuna – Frank Herbert 
+Cold Comfort Farm – Stella Gibbons 
+Pretendent do rêki – Vikram Seth 
+Cieñ wiatru – Carlos Ruiz Zafon 
+Opowieœæ o dwóch miastach – Charles Dickens 
+Nowy wspania³y œwiat – Aldous Huxley 
+Dziwny przypadek psa nocn¹ por¹ (równie¿: Dziwny przypadek z psem nocn¹ por¹) – Mark Haddon 
+Mi³oœæ w czasach zarazy – Gabriel Garcia Marquez 
+Myszy i ludzie (równie¿: O myszach i ludziach) – John Steinbeck 
+Lolita – Vladimir Nabokov 
+Tajemna historia – Donna Tartt 
+Nostalgia anio³a – Alice Sebold 
+Hrabia Monte Christo – Alexandre Dumas 
+W drodze – Jack Kerouac 
+Juda nieznany – Thomas Hardy 
+Dzieci pó³nocy – Salman Rushdie 
+Moby Dick – Herman Melville 
+Oliver Twist – Charles Dickens', , ) 
+Dracula – Bram Stoker  
+Zapiski z ma³ej wyspy – Bill Bryson 
+Ulisses – James Joyce', , ) 
+Szklany kosz – Sylvia Plath 
+Jaskó³ki i Amazonki – Arthur Ransome 
+Germinal – Emile Zola 
+Targowisko pró¿noœci – William Makepeace Thackeray 
+Opêtanie – AS Byatt 
+Opowieœæ wigilijna – Charles Dickens', , ) 
+Atlas chmur – David Mitchell 
+Kolor purpury – Alice Walker 
+Okruchy dnia – Kazuo Ishiguro 
+Pani Bovary – Gustave Flaubert 
+A Fine Balance – Rohinton Mistry 
+Piêæ osób, które spotykamy w niebie – Mitch Albom 
+The Faraway Tree Collection – Enid Blyton 
+J¹dro ciemnoœci – Joseph Conrad 
+Fabryka os – Iain Banks 
+Wodnikowe Wzgórze – Richard Adams 
+Sprzysiê¿enie g³upców (równie¿: Sprzysiê¿enie os³ów) – John Kennedy Toole 
+Miasteczko jak Alece Springs – Nevil Shute 
+Nêdznicy – Victor Hugo
